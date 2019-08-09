@@ -26,3 +26,32 @@ Create a public Github repository and push your solution in it. Commit often - w
 
 - `npm test` runs the application tests	- `npm test` runs the application tests
 - `npm start` starts the http server
+
+
+
+# Solution
+
+ ## Context
+ 
+ * The solution is built using NodeJS, Docker Swarm and Travis CI.
+ * The node app was built into a Dockerfile in the directory docker-node
+ * The load balancer was built into a Dockerfile in the directory docker-lb
+ * 'docker stack deploy' is used to deploy the solution in a Docker Swarm environment with 2 replicas of the app and 1 LB on top
+
+ ## How to deploy? 
+ 
+ * Prerequisites
+   * Docker, docker-compose
+ * Clone the repo to your local that has Docker CLI installed on. 
+ * Connect to a Docker Swarm environment or if you are on your local/Linux, then run 'docker swarm init' to convert the node to a manager.
+ * In the git clone directory run 'docker stack deploy --compose-file docker-compose.yml buildit-devops'.
+ * Curl '127.0.0.1' to 'GET' the Node JS app. 
+ * The container hostnames keep changing as per the round robin method. 
+
+ ## How does it work? 
+
+ * The solution is two layered. The first layer has an nginx server configured as a HTTP loadbalancer.
+ * You can check the 'nginx.cong' file at 'docker-lb/nginx.conf'
+ * The upstream traffic is routed to 'buildit-devops_node:3000', so the above used 'docker stack' command has to be accurate. 
+ * The node app servers in the second layer are exposed at ports '3000', so that the traffic from nginx can be routed to them. 
+ * Since in the 'nginx.conf' file there is no loadbalancing method mentioned, the default method is taken as Round Robin.  
