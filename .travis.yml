@@ -14,8 +14,8 @@ install:
 script: 
  - cd docker-node/
  - npm test 
- - docker build -t jppanda/buildit-devops:node docker-node/
- - docker build -t jppanda/buildit-devops:lb docker-lb/
+ - docker build -t jppanda/buildit-devops:node .
+ - docker build -t jppanda/buildit-devops:lb ../docker-lb/
 
 deploy:
   provider: script
