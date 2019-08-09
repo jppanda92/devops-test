@@ -4,6 +4,8 @@ services:
 
   load_balancer:
     image: jppanda/buildit-devops:lb
+    ports:
+      - "80:80"
     deploy:
       restart_policy:
         condition: on-failure
