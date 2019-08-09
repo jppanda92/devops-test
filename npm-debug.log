@@ -1,15 +1,12 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/nodejs',
-1 verbose cli   '/usr/bin/npm',
-1 verbose cli   'test',
-1 verbose cli   'docker-node/index.test.js' ]
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'test', 'docker-node/' ]
 2 info using npm@3.5.2
 3 info using node@v4.2.6
 4 verbose stack Error: ENOENT: no such file or directory, open '/home/prakash/node-example/devops-test/package.json'
 4 verbose stack     at Error (native)
 5 verbose cwd /home/prakash/node-example/devops-test
 6 error Linux 4.15.0-55-generic
-7 error argv "/usr/bin/nodejs" "/usr/bin/npm" "test" "docker-node/index.test.js"
+7 error argv "/usr/bin/nodejs" "/usr/bin/npm" "test" "docker-node/"
 8 error node v4.2.6
 9 error npm  v3.5.2
 10 error path /home/prakash/node-example/devops-test/package.json
