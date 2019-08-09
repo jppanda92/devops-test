@@ -12,7 +12,8 @@ install:
  - npm i
 
 script: 
- - npm test
+ - cd docker-node/
+ - npm test 
  - docker build -t jppanda/buildit-devops:node docker-node/
  - docker build -t jppanda/buildit-devops:lb docker-lb/
 
