@@ -6,7 +6,7 @@ services:
     image: jppanda/buildit-devops:lb
     deploy:
       restart_policy:
-        condition: on_failure
+        condition: on-failure
 
   buildtit-devops:
     image: jppanda/buildit-devops:node
