@@ -1,10 +1,22 @@
 version: "3.3"
 
 services:
-  simple-node-docker:
-    image: jppanda/test:buildit-devops #Replace with your docker image name
-    ports:
-      - "80:3000"
+
+  load_balancer:
+    image: jppanda/buildit-devops:lb
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: on_failure
+
+  buildtit-devops:
+    image: jppanda/buildit-devops:node
+    depends_on:
+	- load_balancer
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure 
+
+
