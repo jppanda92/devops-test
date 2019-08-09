@@ -8,7 +8,7 @@ services:
       restart_policy:
         condition: on-failure
 
-  buildtit-devops:
+  node:
     image: jppanda/buildit-devops:node
     depends_on:
       - load_balancer
